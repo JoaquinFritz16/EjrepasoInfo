@@ -2,9 +2,11 @@ import { useState } from "react";
 import Saludo from "./components/Saludo";
 import OperacionMatematica from "./components/OperacionMatematica";
 import ElementosListas from "./components/ElementosListas";
-import ListaElementos from "./ListaElementos";
-import DeleteListaElementos from "./DeleteElementos";
+import ListaElementos from "./components/ListaElementos";
+import DeleteListaElementos from "./components/DeleteElementos";
 import AgregarObj from "./components/agregarObj";
+import Counter from "./components/Counter";
+import Item from "./components/items";
 import "./App.css";
 
 function App() {
@@ -19,6 +21,11 @@ function App() {
   const [word, Setword] = useState("");
   const [textoej7, Settextoej7] = useState("");
   const [numEj7, SetnumEj7] = useState(0);
+  const items = [
+    {nombre:"Manzana", categoria:"Fruta", cantidad:5},
+    {nombre:"Leche", categoria:"Lacteos", cantidad:62},
+    {nombre:"Pan", categoria:"Panaderia", cantidad:2}
+  ];
   const handleCount = () => {
     Setcount((prevCount) => prevCount + 1);
   };
@@ -139,6 +146,14 @@ function App() {
         <DeleteListaElementos></DeleteListaElementos>
         <h1>Ejercicio 13</h1>
         <AgregarObj></AgregarObj>
+        <h1>Ejercicio 14</h1>
+        <Counter></Counter>
+        <Counter></Counter>
+        <h1>Ejercicio 15</h1>
+        <h2>Lista de Items</h2>
+        {items.map((item,index)=>(
+          <Item key={index} item={item}>
+          </Item>))}
       </header>
     </div>
   );
